@@ -1,4 +1,4 @@
-<p align="center">
+![WhatsApp Image 2026-02-21 at 10 21 58 AM](https://github.com/user-attachments/assets/9eafaf86-969d-4dc3-a599-f56a1ea538cf)<p align="center">
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
@@ -70,94 +70,49 @@ List the key features of your project:
 
 #### Screenshots (Add at least 3)
 
-"C:\Users\acer\OneDrive\Pictures\Screenshots\Screenshot 2026-02-21 095157.png"
+<img width="1886" height="941" alt="Screenshot 2026-02-21 095157" src="https://github.com/user-attachments/assets/0bda2b48-30f0-4f93-8e9b-45d6011ef585" />  frontend
+<img width="1893" height="1063" alt="Screenshot 2026-02-21 095122" src="https://github.com/user-attachments/assets/7a9e7168-edde-42cb-8bcc-2ebbf569eae1" /> login page
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+<img width="1561" height="908" alt="Screenshot 2026-02-21 095220" src="https://github.com/user-attachments/assets/4e421703-97b3-4a2a-a629-1a50dd2a4774" /> selling product page
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
 
 #### Diagrams
 
-**System Architecture:**
++-----------------+         +-------------------+         +----------------+
+|                 |         |                   |         |                |
+|   User Browser  | <-----> |     Frontend      | <-----> |  storage.js    |
+|  (HTML/CSS/JS)  |         | (HTML/CSS Pages)  |         |  (Logic +      |
+|                 |         |                   |         |  localStorage) |
++-----------------+         +-------------------+         +----------------+
+         |                           |                          |
+         |                           |                          |
+         v                           v                          v
+  Signup / Login               Sell Products               Data Storage
+  - Email / Password           - Product details           - Users
+                               - Image upload              - Products
+                               - Delete products           - Orders
+                                                          |
+                                                          v
+                                                    Buy Products
+                                                    - Browse products
+                                                    - Place order
+                                                    - View My Orders
 
-![Architecture Diagram](docs/architecture.png)
-*Explain your system architecture - components, data flow, tech stack interaction*
 
-**Application Workflow:**
-
-![Workflow](docs/workflow.png)
-*Add caption explaining your workflow*
-
----
-
-### For Hardware:
-
-#### Schematic & Circuit
-
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
 
 #### Build Photos
 
-![Team](Add photo of your team here)
 
-![Components](Add photo of your components here)
-*List out all components shown*
+<img width="1069" height="611" alt="Screenshot 2026-02-21 102320" src="https://github.com/user-attachments/assets/deec7af6-019a-480c-8fd5-37aaa8ef22a4" />
 
-![Build](Add photos of build process here)
-*Explain the build steps*
 
-![Final](Add photo of final product here)
-*Explain the final build*
+<img width="1552" height="950" alt="Screenshot 2026-02-21 101919" src="https://github.com/user-attachments/assets/7b16b596-5d48-40b2-b0cd-6dc8bc395231" />
+
+
+<img width="1919" height="983" alt="Screenshot 2026-02-21 101341" src="https://github.com/user-attachments/assets/4bb60591-2391-4dd6-bba3-0b638206a2cb" /> 
 
 ---
 
-## Additional Documentation
-
-### For Web Projects with Backend:
-
-#### API Documentation
-
-**Base URL:** `https://api.yourproject.com`
-
-##### Endpoints
-
-**GET /api/endpoint**
-- **Description:** [What it does]
-- **Parameters:**
-  - `param1` (string): [Description]
-  - `param2` (integer): [Description]
-- **Response:**
-```json
-{
-  "status": "success",
-  "data": {}
-}
-```
-
-**POST /api/endpoint**
-- **Description:** [What it does]
-- **Request Body:**
-```json
-{
-  "field1": "value1",
-  "field2": "value2"
-}
-```
-- **Response:**
-```json
-{
-  "status": "success",
-  "message": "Operation completed"
-}
-```
-
-[Add more endpoints as needed...]
 
 ---
 
@@ -168,29 +123,7 @@ List the key features of your project:
 ![App Flow](docs/app-flow.png)
 *Explain the user flow through your application*
 
-#### Installation Guide
 
-**For Android (APK):**
-1. Download the APK from [Release Link]
-2. Enable "Install from Unknown Sources" in your device settings:
-   - Go to Settings > Security
-   - Enable "Unknown Sources"
-3. Open the downloaded APK file
-4. Follow the installation prompts
-5. Open the app and enjoy!
-
-**For iOS (IPA) - TestFlight:**
-1. Download TestFlight from the App Store
-2. Open this TestFlight link: [Your TestFlight Link]
-3. Click "Install" or "Accept"
-4. Wait for the app to install
-5. Open the app from your home screen
-
-**Building from Source:**
-```bash
-# For Android
-flutter build apk
-# or
 ./gradlew assembleDebug
 
 # For iOS
@@ -201,27 +134,6 @@ xcodebuild -workspace App.xcworkspace -scheme App -configuration Debug
 
 ---
 
-### For Hardware Projects:
-
-#### Bill of Materials (BOM)
-
-| Component | Quantity | Specifications | Price | Link/Source |
-|-----------|----------|----------------|-------|-------------|
-| Arduino Uno | 1 | ATmega328P, 16MHz | ₹450 | [Link] |
-| LED | 5 | Red, 5mm, 20mA | ₹5 each | [Link] |
-| Resistor | 5 | 220Ω, 1/4W | ₹1 each | [Link] |
-| Breadboard | 1 | 830 points | ₹100 | [Link] |
-| Jumper Wires | 20 | Male-to-Male | ₹50 | [Link] |
-| [Add more...] | | | | |
-
-**Total Estimated Cost:** ₹[Amount]
-
-#### Assembly Instructions
-
-**Step 1: Prepare Components**
-1. Gather all components listed in the BOM
-2. Check component specifications
-3. Prepare your workspace
 ![Step 1](images/assembly-step1.jpg)
 *Caption: All components laid out*
 
@@ -347,7 +259,7 @@ python script.py -v --format json data.json
 ## Project Demo
 
 ### Video
-[Add your demo video link here - YouTube, Google Drive, etc.]
+[[Add your demo video link here - YouTube, Google Drive, etc.]](https://drive.google.com/file/d/1UevrUTqYG6O-vPU7MbndG4yFL-TewA9_/view?usp=sharing)
 
 *Explain what the video demonstrates - key features, user flow, technical highlights*
 
