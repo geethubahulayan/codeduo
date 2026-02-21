@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Track Product - EcoMetric</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #e0f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 50px;
+}
+
+.container {
+    background: #fff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 400px;
+}
+
+h2 {
+    color: #00796b;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: 1px solid #b2dfdb;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #26a69a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #00796b;
+}
+
+.result {
+    margin-top: 20px;
+    background: #f1f8e9;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.result p {
+    margin: 8px 0;
+}
+
+.progress-bar {
+    height: 20px;
+    width: 100%;
+    background: #ddd;
+    border-radius: 10px;
+    margin: 5px 0 15px 0;
+}
+
+.progress-bar-inner {
+    height: 100%;
+    border-radius: 10px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Track Product</h2>
+    <input type="text" id="searchInput" placeholder="Enter product name">
+    <button onclick="searchProduct()">Search</button>
+
+    <div id="resultDiv" class="result"></div>
+</div>
+
+<script>
+// Load products.json
+fetch('products.json')
+    .then(res => res.json())
+    .then(data => {
+        window.products = data; // make products global
+    })
+    .catch(err => console.error("Cannot load products.json:", err));
+
+function searchProduct() {
+    const input = document.getElementById("searchInput").value.trim().toLowerCase();
+    const resultDiv = document.getElementById("resultDiv");
+    resultDiv.innerHTML = "";
+
+    if (!input) {
+        resultDiv.innerHTML = '<p style="color:red;">Please enter a product name.</p>';
+        return;
+    }
+
+    const product = window.products.find(p => p.name.toLowerCase() === input);
+
+    if (!product) {
+        resultDiv.innerHTML = '<p style="color:red;">Product not found.</p>';
+        return;
+    }
+
+    // Green Score Calculation
+    let score = product.baseScore;
+    switch(product.material.toLowerCase()){
+        case "plastic": score*=0.8; break;
+        case "glass": score*=1.1; break;
+        case "metal": score*=1.2; break;
+        case "paper": score*=1.0; break;
+        case "organic": score*=1.05; break;
+        default: score*=1;
+    }
+    score += product.recyclable ? 10 : -10;
+    score = Math.round(Math.max(0, Math.min(100, score)));
+
+    // Score color
+    let color = "green";
+    if(score <= 40) color = "red";
+    else if(score <= 70) color = "orange";
+
+    resultDiv.innerHTML = `
+        <p><strong>Product:</strong> ${product.name}</p>
+        <p><strong>Material:</strong> ${product.material}</p>
+        <p><strong>Green Score:</strong> ${score} / 100</p>
+        <div class="progress-bar">
+            <div class="progress-bar-inner" style="width:${score}%;background:${color};"></div>
+        </div>
+        <p><strong>Alternative:</strong> ${product.alternative}</p>
+    `;
+}
+</script>
+
+</body>
+</html>

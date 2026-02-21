@@ -265,3 +265,226 @@ footer {
 .login-box button:hover {
     background-color: #40916c;
 }
+body.auth-body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e8f5e9, #f4fbf6); /* soft eco green */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container Card */
+.auth-container {
+    background-color: white;
+    width: 380px;
+    padding: 45px 35px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Heading */
+.auth-container h2 {
+    color: #2e7d32; /* dark green */
+    margin-bottom: 25px;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+/* Inputs */
+.auth-container input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    border: 1px solid #c8e6c9;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.auth-container input:focus {
+    border-color: #2e7d32;
+    box-shadow: 0 0 5px rgba(46, 125, 50, 0.3);
+}
+
+/* Button */
+.auth-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.auth-container button:hover {
+    background-color: #1b5e20;
+}
+
+/* Message */
+#message {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* Responsive for smaller screens */
+@media screen and (max-width: 420px) {
+    .auth-container {
+        width: 90%;
+        padding: 35px 20px;
+    }
+}
+/* ===== Login Page Style ===== */
+
+.login-body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #e8f5e9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.login-card {
+    background: white;
+    width: 350px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 1px solid #c8e6c9;
+    border-radius: 6px;
+}
+
+.login-card button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.login-card button:hover {
+    background-color: #1b5e20;
+}
+
+.login-links {
+    margin-top: 15px;
+}
+/* style.css */
+
+/* Body with green theme and background image */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+}
+
+/* Form and dashboard container */
+.auth-container, .dashboard-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Headings */
+h1, h2 {
+    text-align: center;
+    color: #2e7d32;
+}
+
+/* Inputs and textareas */
+input[type="text"], input[type="email"], input[type="password"], input[type="number"], textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Buttons */
+button {
+    background-color: #43a047;
+    color: white;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #2e7d32;
+}
+
+/* Product and order cards */
+#productList div, #orderList div {
+    background: rgba(255,255,255,0.9);
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#productList div img, #orderList div img {
+    margin-top: 10px;
+    border-radius: 8px;
+    max-width: 150px;
+}
+
+/* Links */
+a {
+    color: #2e7d32;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Messages */
+#message {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media screen and (max-width: 500px) {
+    .auth-container, .dashboard-container {
+        width: 90%;
+        padding: 20px;
+    }
+}

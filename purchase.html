@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Purchase Product</title>
+    <style>
+        body { background-color: #e6f2e6; font-family: Arial; text-align: center; padding: 50px; }
+        .button { background-color: #4caf50; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; margin-top: 20px; }
+        .button:hover { background-color: #388e3c; }
+        img { max-width: 200px; border-radius: 8px; margin-bottom: 15px; }
+        #procedure { background-color: #e0ffe0; padding: 15px; border-radius: 8px; display:inline-block; text-align:left; }
+    </style>
+</head>
+<body>
+    <h1>Purchase Product</h1>
+    <div id="productInfo"></div>
+    <div id="procedure">
+        <h3>Purchase Procedure</h3>
+        <p>1. Check product details.<br>
+           2. Confirm purchase.<br>
+           3. Payment done.<br>
+           4. Enjoy your eco-friendly product!</p>
+        <button class="button" id="claimBtn">Claim Reward</button>
+    </div>
+
+    <script>
+        const product = JSON.parse(localStorage.getItem('currentPurchase'));
+        const productInfo = document.getElementById('productInfo');
+
+        if (product) {
+            productInfo.innerHTML = `
+                <h2>${product.name}</h2>
+                <img src="${product.image}" alt="${product.name}">
+                <p>Price: ₹${product.price}</p>
+                <p>${product.desc}</p>
+            `;
+        } else {
+            productInfo.innerHTML = '<p>No product selected.</p>';
+        }
+
+        document.getElementById('claimBtn').addEventListener('click', function() {
+            let rewards = Number(localStorage.getItem('rewards') || 0);
+            rewards += 10; // each purchase gives 10 points
+            localStorage.setItem('rewards', rewards);
+            alert(`Reward Claimed! You now have ${rewards} points.`);
+            window.location.href = 'dashboard.html'; // go back to dashboard
+        });
+    </script>
+</body>
+</html>

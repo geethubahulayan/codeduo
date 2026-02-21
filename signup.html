@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up - EcoMetric</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-body">
+
+<div class="auth-container">
+    <h2>Create Your Account</h2>
+
+    <input type="email" id="email" placeholder="Enter your Email" required>
+    <input type="password" id="password" placeholder="Create Password" required>
+
+    <button id="signupBtn">Sign Up</button>
+
+    <p id="message"></p>
+</div>
+
+<script src="storage.js"></script>
+<script>
+document.getElementById("signupBtn").addEventListener("click", function() {
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const message = document.getElementById("message");
+
+    message.style.color = "red";
+
+    if (!email || !password) {
+        message.innerText = "Please fill all fields.";
+        return;
+    }
+
+    // Register user
+    const result = registerUser(email, password);
+
+    if (result === "exists") {
+        message.innerText = "This email is already registered.";
+    } else {
+        message.style.color = "green";
+        message.innerText = "Signup successful! Redirecting to Home...";
+
+        // Ensure redirect works even if storage.js is slow
+        setTimeout(() => {
+            window.location.href = "index.html";
+        }, 1500);
+    }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buy Products</title>
+    <style>
+        body { font-family: Arial; text-align: center; background-color: #e6f2e6; padding: 20px; }
+        h1 { color: #2e7d32; }
+        .product { background-color: #f0fff0; border: 1px solid #ccc; border-radius: 10px; padding: 20px; margin: 20px auto; width: 300px; text-align: center; position: relative; }
+        img { max-width: 100%; border-radius: 8px; margin-bottom: 10px; }
+        .button { background-color: #4caf50; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; margin-top: 10px; }
+        .button:hover { background-color: #388e3c; }
+        .purchasePanel { background-color: #e0ffe0; padding: 15px; border-radius: 8px; margin-top: 10px; display:none; text-align:left; }
+        input[type="text"] { width: 150px; padding: 5px; margin-top: 5px; }
+        #rewardDisplay { font-weight: bold; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+<h1>Available Products</h1>
+<p id="rewardDisplay"></p>
+<div id="productList"></div>
+
+<script>
+let rewards = Number(localStorage.getItem('rewards') || 0);
+document.getElementById('rewardDisplay').innerText = `Your Reward Points: ${rewards}`;
+
+const products = JSON.parse(localStorage.getItem('products') || '[]');
+const productList = document.getElementById('productList');
+
+if(products.length===0){
+    productList.innerHTML='<p>No products available. Sell something first!</p>';
+}else{
+    products.forEach((p,index)=>{
+        const div = document.createElement('div');
+        div.className='product';
+        div.innerHTML=`
+            <h3>${p.name}</h3>
+            <img src="${p.image}" alt="${p.name}">
+            <p>Price: ₹${p.price}</p>
+            <p>${p.desc || ''}</p>
+            <button class="button" onclick="openPurchase(this,${index})">Buy Now</button>
+            <div class="purchasePanel">
+                <label>Phone Number: </label>
+                <input type="text" class="ppPhoneNumber" placeholder="Enter phone number"><br>
+                <button class="button ppOrder">Place Your Order</button>
+                <p class="successMsg" style="display:none; color:green; font-weight:bold;">Order Successful!</p>
+                <button class="button ppClaim" style="display:none;">Claim Reward</button>
+            </div>
+        `;
+        productList.appendChild(div);
+    });
+}
+
+function openPurchase(btn,index){
+    const panel = btn.nextElementSibling;
+    panel.style.display = panel.style.display==='block'?'none':'block';
+
+    const orderBtn = panel.querySelector('.ppOrder');
+    const phoneEl = panel.querySelector('.ppPhoneNumber');
+    const successMsg = panel.querySelector('.successMsg');
+    const claimBtn = panel.querySelector('.ppClaim');
+
+    orderBtn.onclick = ()=>{
+        const phone = phoneEl.value.trim();
+        if(phone===''){ alert('Please enter your phone number!'); return; }
+        if(!/^\d{10}$/.test(phone)){ alert('Please enter a valid 10-digit phone number!'); return; }
+
+        // Show order success and reveal claim reward button
+        successMsg.style.display='block';
+        claimBtn.style.display='inline-block';
+        orderBtn.style.display='none';
+        phoneEl.disabled=true;
+    };
+
+    claimBtn.onclick = ()=>{
+        rewards +=10; // Add reward points
+        localStorage.setItem('rewards', rewards);
+        document.getElementById('rewardDisplay').innerText = `Your Reward Points: ${rewards}`;
+        alert('Reward Claimed! You earned 10 points.');
+        claimBtn.style.display='none';
+        successMsg.style.display='none';
+        panel.style.display='none';
+        phoneEl.value='';
+        phoneEl.disabled=false;
+        orderBtn.style.display='inline-block';
+    };
+}
+</script>
+
+</body>
+</html>

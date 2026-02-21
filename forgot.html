@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reset Password - EcoMetric</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-body">
+
+<div class="auth-container">
+    <h2>Reset Password</h2>
+
+    <input type="email" id="email" placeholder="Enter Registered Email">
+    <input type="password" id="newPassword" placeholder="Enter New Password">
+
+    <button onclick="handleReset()">Update Password</button>
+
+    <p id="message"></p>
+</div>
+
+<script src="storage.js"></script>
+<script>
+function handleReset() {
+    let email = document.getElementById("email").value.trim();
+    let newPassword = document.getElementById("newPassword").value.trim();
+    let message = document.getElementById("message");
+
+    if(email === "" || newPassword === "") {
+        message.style.color = "red";
+        message.innerText = "Please fill all fields.";
+        return;
+    }
+
+    // Call the resetPassword function from storage.js
+    let result = resetPassword(email, newPassword);
+
+    if(result === "not_registered") {
+        message.style.color = "red";
+        message.innerText = "Email not registered.";
+    } else {
+        message.style.color = "green";
+        message.innerText = "Password updated successfully! Redirecting to login...";
+
+        // Redirect to login page after 1.5 seconds
+        setTimeout(() => {
+            window.location.href = "login.html";
+        }, 1500);
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sell Your Product</title>
+    <style>
+        body { background-color: #e6f2e6; font-family: Arial; text-align: center; padding: 50px; }
+        input, textarea { width: 250px; margin: 5px; padding: 5px; }
+        .button { background-color: #4caf50; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; }
+        .button:hover { background-color: #388e3c; }
+    </style>
+</head>
+<body>
+    <h1>Sell Your Product</h1>
+
+    <input type="text" id="name" placeholder="Product Name"><br>
+    <input type="number" id="price" placeholder="Price"><br>
+    <input type="file" id="image"><br>
+    <textarea id="desc" placeholder="Description"></textarea><br>
+    <button class="button" onclick="submitProduct()">Submit</button>
+
+    <br><br>
+    <button class="button" onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
+
+    <script>
+        function submitProduct() {
+            const name = document.getElementById('name').value;
+            const price = document.getElementById('price').value;
+            const imageFile = document.getElementById('image').files[0];
+            const desc = document.getElementById('desc').value;
+
+            if (!name || !price || !imageFile || !desc) {
+                alert('Please fill all fields');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function() {
+                const imgData = reader.result; // base64 image
+
+                // Get existing products
+                const products = JSON.parse(localStorage.getItem('products') || '[]');
+
+                // Add new product
+                products.push({name, price, image: imgData, desc});
+
+                // Save back to localStorage
+                localStorage.setItem('products', JSON.stringify(products));
+
+                alert('Product Submitted!');
+
+                // Reset form
+                document.getElementById('name').value = '';
+                document.getElementById('price').value = '';
+                document.getElementById('image').value = '';
+                document.getElementById('desc').value = '';
+            };
+
+            reader.readAsDataURL(imageFile); // convert image to base64
+        }
+    </script>
+</body>
+</html>
