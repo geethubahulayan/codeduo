@@ -2,27 +2,26 @@
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
-# [Project Name] 🎯
+# [EcoMetric] 🎯
 
 ## Basic Details
 
-### Team Name: [Name]
+### Team Name: [codeduo]
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+- Member 1: Geethu S Bahulayan - College Of Engineering Attingal
+- Member 2: Krishna Ajayan- College Of Engineering Attingal
 
 ### Hosted Project Link
 [mention your project hosted link here]
 
 ### Project Description
-[2-3 lines about what your project does]
+EcoMetric is a beginner-friendly web application that encourages eco-friendly practices while providing a platform for buying and selling sustainable products. The project is built entirely with HTML, CSS, and JavaScript using localStorage for data storage, making it simple, lightweight, and easy to run locally without a server.
 
 ### The Problem statement
-[What problem are you solving?]
-
+Finding and buying eco-friendly products is difficult, and small producers don’t have an easy platform to sell their sustainable products.
 ### The Solution
-[How are you solving it?]
+EcoMetric is a simple web platform where users can buy and sell eco-friendly products. Sellers can upload product details and images, while buyers can browse and place orders. All data is stored in the browser, making it easy to use without a server and helping connect eco-conscious consumers with sustainable products
 
 ---
 
@@ -31,25 +30,19 @@
 ### Technologies/Components Used
 
 **For Software:**
-- Languages used: [e.g., JavaScript, Python, Java]
-- Frameworks used: [e.g., React, Django, Spring Boot]
-- Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git, Docker]
+- Languages used: html,css,javascript
+- Tools used:  VS Code, Git
 
-**For Hardware:**
-- Main components: [List main components]
-- Specifications: [Technical specifications]
-- Tools required: [List tools needed]
 
 ---
 
 ## Features
 
 List the key features of your project:
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
-- Feature 4: [Description]
+ User Authentication: Sign up and login system to create personal accounts.
+ Sell Products: Upload and manage eco-friendly products with images and details.
+ Buy Products: Browse products uploaded by others and place orders.
+ Order Tracking: View orders placed by the user in a dedicated section.
 
 ---
 
@@ -67,13 +60,7 @@ List the key features of your project:
 [Run commands - e.g., npm start, python app.py]
 ```
 
-### For Hardware:
 
-#### Components Required
-[List all components needed with specifications]
-
-#### Circuit Setup
-[Explain how to set up the circuit]
 
 ---
 
@@ -83,8 +70,7 @@ List the key features of your project:
 
 #### Screenshots (Add at least 3)
 
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+"C:\Users\acer\OneDrive\Pictures\Screenshots\Screenshot 2026-02-21 095157.png"
 
 ![Screenshot2](Add screenshot 2 here with proper name)
 *Add caption explaining what this shows*
