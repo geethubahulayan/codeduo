@@ -13,7 +13,7 @@
 - Member 2: Krishna Ajayan- College Of Engineering Attingal
 
 ### Hosted Project Link
-[mention your project hosted link here]
+https://geethubahulayan.github.io/codeduo/
 
 ### Project Description
 EcoMetric is a beginner-friendly web application that encourages eco-friendly practices while providing a platform for buying and selling sustainable products. The project is built entirely with HTML, CSS, and JavaScript using localStorage for data storage, making it simple, lightweight, and easy to run locally without a server.
